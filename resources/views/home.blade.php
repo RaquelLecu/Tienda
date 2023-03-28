@@ -53,23 +53,6 @@
     <main>
         <div id='home'>
             <h1>¡Bienvenido<br> Al Señor De Los Librillos!</h1>
-            <!-- @foreach ($libros as $lib)
-            <div>
-                <p>{{ $lib->nombre }}</p>
-                <img src="{{ $lib->foto }}" alt="foto" />
-                <p>{{ $lib->precio }}</p>
-            </div>
-            @endforeach
-            @foreach ($categorias as $cat)
-            <div>
-                <p>{{ $cat->nombre }}</p>
-                <img src="{{ $cat->foto }}" alt="foto" />
-            </div>
-            @endforeach
-            <div><button><a href="{{url('/verLibros')}}">Ver Libros</a></button></div>
-            <div><button><a href="{{url('/guardarLibro')}}">Guardar Libros</a></button></div>
-            <div><button><a href="{{url('/verCategorias')}}">Ver Categorias</a></button></div>
-            <div><button><a href="{{url('/guardarCategoria')}}">Guardar Categorias</a></button></div> -->
         </div>
     </main>
 </body>
