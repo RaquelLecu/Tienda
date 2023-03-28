@@ -13,10 +13,7 @@ class LibrosControler extends Controller
         $libros=Producto::all();
     	return view('verLibro',['libros'=>$libros]);
     }
-    // function carrito(){
-    //     $libros=Producto::all();
-    // 	return redirect('/verLibros');;
-    // }
+    
     function guardar(){
         if (Auth::check()) {
             $usuario = Auth::user();

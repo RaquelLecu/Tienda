@@ -23,7 +23,6 @@ class CarritoControler extends Controller
         $num = session('carritoNum');
         $num--;
         session()->put('carritoNum', $num);
-        //$libro = Producto::find($r->id);
         $items = session('carrito');
         unset($items[$r->item]);
         session()->put('carrito', $items);

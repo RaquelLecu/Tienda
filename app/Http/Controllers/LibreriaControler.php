@@ -9,8 +9,6 @@ use Illuminate\Http\Request;
 class LibreriaControler extends Controller
 {
     function index(){
-        $categorias=Categoria::all();
-        $libros=Producto::all();
-    	return view('home',['categorias'=>$categorias, 'libros'=>$libros]);
+    	return view('home');
     }
 }
