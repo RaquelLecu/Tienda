@@ -60,9 +60,6 @@
                     <button type='submit'>Comprar</button>
                     @endauth
                 </form>
-                <!-- <pre>
-                    // $valoracionPromedio 
-                </pre> -->
             </div>
             @endforeach
         </div>
