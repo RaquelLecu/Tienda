@@ -157,3 +157,10 @@ h1{
   #pago{
     text-align: center;
   }
+
+  #charge h1{
+    background-color: blue;
+    color: white;
+    padding: 2% 10%;
+    font-size: x-large; 
+  }
