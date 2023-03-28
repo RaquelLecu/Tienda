@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CategoriasControler extends Controller
 {
@@ -35,14 +36,16 @@ class CategoriasControler extends Controller
     }
     function updateCategoria(Request $r){
         $path = $r->foto->store('images','public');
-        $categoria = Categoria::where('id','=',$r->id)->first();
+        $categoria = Categoria::find($r->id);
+        Storage::delete(str_replace('storage/', '', $categoria->foto));
         $categoria->nombre = $r->nombre;
         $categoria->foto = 'storage/'.$path;
         $categoria->save();
         return redirect('/verCategorias');
     }
     function deleteCategoria(Request $r){
-        $categoria = Categoria::where('id','=',$r->id);
+        $categoria = Categoria::find($r->id);
+        Storage::delete(str_replace('storage/', '', $categoria->foto));
         $categoria->delete();
         return redirect('/verCategorias');
     }
