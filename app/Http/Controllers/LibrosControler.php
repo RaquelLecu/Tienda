@@ -5,14 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class LibrosControler extends Controller
 {
     function ver(){
         $libros=Producto::all();
-        $algo=Producto::find(4);
-        $valoracionPromedio = $algo->averageRating();
-    	return view('verLibro',['libros'=>$libros, 'valoracionPromedio' => $valoracionPromedio]);
+    	return view('verLibro',['libros'=>$libros]);
     }
     function carrito(){
         $libros=Producto::all();
@@ -46,7 +45,8 @@ class LibrosControler extends Controller
     }
     function updateLibro(Request $r){
         $path = $r->foto->store('images','public');
-        $libro = Producto::where('id','=',$r->id)->first();
+        $libro = Producto::find($r->id);
+        Storage::delete(str_replace('storage/', '', $libro->foto));
         $libro->nombre = $r->nombre;
         $libro->descripcion = $r->descripcion;
         $libro->precio = doubleval($r->precio);
@@ -56,7 +56,8 @@ class LibrosControler extends Controller
         return redirect('/verLibros');
     }
     function deleteLibro(Request $r){
-        $libro = Producto::where('id','=',$r->id);
+        $libro = Producto::find($r->id);
+        Storage::delete(str_replace('storage/', '', $libro->foto));
         $libro->delete();
         return redirect('/verLibros');
     }
