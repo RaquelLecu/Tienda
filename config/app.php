@@ -182,7 +182,10 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         willvincent\Rateable\RateableServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+        Panfu\Laravel\HCaptcha\HCaptchaServiceProvider::class,
 
+        
         /*
          * Package Service Providers...
          */
@@ -211,6 +214,9 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'HCaptcha' => Panfu\Laravel\HCaptcha\Facades\HCaptcha::class,
+        'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
+
     ])->toArray(),
 
 ];
