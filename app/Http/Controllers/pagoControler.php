@@ -3,11 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class pagoControler extends Controller
 {
-    function pagar(){        
+    function pagar(Request $request){   
+        $validator = Validator::make($request->all(), [
+            'g-recaptcha-response' => 'required|captcha'
+        ]);
+        if ($validator->fails()) {
+            return redirect('/verCarrito')->withErrors($validator);
+        }     
     	return view('pagar');
+    }
+    public function validarCaptcha(Request $request)
+    {
+        // Validar el captcha
+        $validator = Validator::make($request->all(), [
+            'g-recaptcha-response' => 'required|captcha'
+        ]);
+
+        // Si la validación falla, regresar al usuario con el error
+        if ($validator->fails()) {
+            return redirect('/')->withErrors($validator);
+        }
+
+        // Si la validación es correcta, continuar con el procesamiento del formulario
+        // ...
     }
 
     function charge(){

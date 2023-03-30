@@ -66,9 +66,11 @@
                 use Anhskohbo\NoCaptcha\Facades\NoCaptcha;
             @endphp
             <p id='total'>total: {{ $total }}€</p>
+            <form action="/pagar" method="get">
             {!! NoCaptcha::renderJs() !!}
             {!! NoCaptcha::display() !!}
-            <a href="{{url('/pagar')}}"><button id='comprar'>Comprar</button></a>
+            <button id='comprar'>Comprar</button>
+            </form>
         </div>
     </main>
 </body>
