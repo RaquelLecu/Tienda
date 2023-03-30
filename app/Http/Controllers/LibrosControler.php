@@ -66,7 +66,12 @@ class LibrosControler extends Controller
 
     function catLibros(Request $r){
         $libros=Producto::where('categoria_id','=',$r->id)->get();
-    	return view('verLibro',['libros'=>$libros]);
+    	$valoracion=[];
+        foreach($libros as $lib){
+            $valoracionPromedio = $lib->averageRating();
+            array_push($valoracion, $valoracionPromedio);
+        }
+    	return view('verLibro',['libros'=>$libros,'valoracion'=>$valoracion]);
     }
 
     function valorarLibro(Request $r){
