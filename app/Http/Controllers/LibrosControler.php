@@ -11,7 +11,12 @@ class LibrosControler extends Controller
 {
     function ver(){
         $libros=Producto::all();
-    	return view('verLibro',['libros'=>$libros]);
+        $valoracion=[];
+        foreach($libros as $lib){
+            $valoracionPromedio = $lib->averageRating();
+            array_push($valoracion, $valoracionPromedio);
+        }
+    	return view('verLibro',['libros'=>$libros,'valoracion'=>$valoracion]);
     }
     
     function guardar(){
@@ -63,4 +68,20 @@ class LibrosControler extends Controller
         $libros=Producto::where('categoria_id','=',$r->id)->get();
     	return view('verLibro',['libros'=>$libros]);
     }
+
+    function valorarLibro(Request $r){
+        $libro = Producto::find($r->id);
+        return view('valorarLibro', ['libro'=>$libro]);
+    }
+
+    function valoracion(Request $r){
+        $libro = Producto::find($r->id);
+        $usuario = Auth::user();
+        $rating = new \willvincent\Rateable\Rating;
+        $rating->rating = $r->rate;
+        $rating->user_id = $usuario->id;
+        $libro->ratings()->save($rating);
+        return redirect('/verLibros');   
+    }    
+       
 }

@@ -58,7 +58,11 @@ Route::get('/noPasar', [PruebaControler::class, 'prueba']);
 Route::get('/carrito', [CarritoControler::class, 'upCarrito']);
 Route::get('/borrarItem', [CarritoControler::class, 'borrarItem']);
 Route::get('/verCarrito', [CarritoControler::class, 'ver']);
-//Route::get('/view3', [PruebaControler::class, 'probar']);
 //pagos
 Route::get('/pagar', [pagoControler::class, 'pagar']);
 Route::post('/createCharge', [pagoControler::class, 'charge']);
+//ruta para pruebas
+Route::get('/view3', [PruebaControler::class, 'probar']);
+//estrellas libros
+Route::get('/valorarLibro', [LibrosControler::class, 'valorarLibro']);
+Route::post('/valoracion', [LibrosControler::class, 'valoracion']);
