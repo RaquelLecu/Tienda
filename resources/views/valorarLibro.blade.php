@@ -27,10 +27,10 @@
         <button class='btnNav'><a href="{{url('/verCategorias')}}">Ver Categorias</a></button>
         <button class='btnNav'><a href="{{url('/verCarrito')}}">Ver Carrito: {{ session('carritoNum') }}</a></button>
         <button class='btnNav'><a href="{{url('/guardarCategoria')}}">Gestionar Categoria</a></button>
-        <button class='btnNav'><a href="{{url('/guardarLibro')}}">Gestionar Libros</a></button>        
-        <button class='btnNav'><a href="{{url('/guardarUsuario')}}">Gestionar Usuario</a></button>        
+        <button class='btnNav'><a href="{{url('/guardarLibro')}}">Gestionar Libros</a></button>
+        <button class='btnNav'><a href="{{url('/guardarUsuario')}}">Gestionar Usuario</a></button>
     </nav>
-    @else    
+    @else
     <nav id='nav-principal'>
         <button class='btnNav'><a href="{{url('/verLibros')}}">Ver Libros</a></button>
         <button class='btnNav'><a href="{{url('/verCategorias')}}">Ver Categorias</a></button>
@@ -48,24 +48,24 @@
 
     <main>
         <div>
-            <h1>Nuestros Libros</h1>
-            @foreach ($libros as $i => $lib)
+            <h1>Valorar Libro</h1>
+
             <div class='producto'>
-                <form action="carrito" method="get">
-                    <input type='text' name= 'id' value = '{{ $lib->id }}' hidden>
-                    <p class="producTitulo">{{ $lib->nombre }}</p>
-                    <img src="{{ $lib->foto }}" alt="foto" />
-                    <p class="producPrecio">Precio: {{ $lib->precio }}€</p>
-                    @auth 
-                    <button type='submit'>Comprar</button>
-                    @endauth
+                <form action="/valoracion" method="post">
+                @csrf
+                    <input type='text' name='id' value='{{ $libro->id }}' hidden>
+                    <p class="producTitulo">{{ $libro->nombre }}</p>
+                    <img src="{{ $libro->foto }}" alt="foto" />
+                    <div class="star_content">
+                        <input name="rate" value="1" type="radio" class="star" />
+                        <input name="rate" value="2" type="radio" class="star" />
+                        <input name="rate" value="3" type="radio" class="star" />
+                        <input name="rate" value="4" type="radio" class="star" />
+                        <input name="rate" value="5" type="radio" class="star" />
+                    </div>
+                    <button type="submit">Enviar</button>
                 </form>
-                <p>Puntuacion de: {{$valoracion[$i]}}</p>
-                @auth 
-                    <a  href="{{url('/valorarLibro?id='.$lib->id)}}"><button>Valorar</button></a>
-                @endauth
             </div>
-            @endforeach
         </div>
     </main>
 </body>

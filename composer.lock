@@ -4,8 +4,72 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d73c60e1c5409db381addef38614f01",
+    "content-hash": "a4a0f4808bb278c539c19b1c5dafd264",
     "packages": [
+        {
+            "name": "anhskohbo/no-captcha",
+            "version": "3.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/anhskohbo/no-captcha.git",
+                "reference": "81302b9ddfb4ee5904b66f24bf3e11ea74fa0b92"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/anhskohbo/no-captcha/zipball/81302b9ddfb4ee5904b66f24bf3e11ea74fa0b92",
+                "reference": "81302b9ddfb4ee5904b66f24bf3e11ea74fa0b92",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.2|^7.0",
+                "illuminate/support": "^5.0|^6.0|^7.0|^8.0|^9.0|^10.0",
+                "php": ">=5.5.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8|^9.5.10"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider"
+                    ],
+                    "aliases": {
+                        "NoCaptcha": "Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Anhskohbo\\NoCaptcha\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "anhskohbo",
+                    "email": "anhskohbo@gmail.com"
+                }
+            ],
+            "description": "No CAPTCHA reCAPTCHA For Laravel.",
+            "keywords": [
+                "captcha",
+                "laravel",
+                "laravel4",
+                "laravel5",
+                "laravel6",
+                "no-captcha",
+                "recaptcha"
+            ],
+            "support": {
+                "issues": "https://github.com/anhskohbo/no-captcha/issues",
+                "source": "https://github.com/anhskohbo/no-captcha/tree/3.5.0"
+            },
+            "time": "2023-02-15T16:07:08+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.10.2",
@@ -5146,6 +5210,65 @@
                 }
             ],
             "time": "2022-12-22T17:55:15+00:00"
+        },
+        {
+            "name": "teampanfu/laravel-hcaptcha",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/teampanfu/laravel-hcaptcha.git",
+                "reference": "32427da8b06ef1516dbf0ff1457ffb6df2f1a466"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/teampanfu/laravel-hcaptcha/zipball/32427da8b06ef1516dbf0ff1457ffb6df2f1a466",
+                "reference": "32427da8b06ef1516dbf0ff1457ffb6df2f1a466",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.2|^7.2",
+                "php": "^7.2|^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Panfu\\Laravel\\HCaptcha\\HCaptchaServiceProvider"
+                    ],
+                    "aliases": {
+                        "HCaptcha": "Panfu\\Laravel\\HCaptcha\\Facades\\HCaptcha"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Panfu\\Laravel\\HCaptcha\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Robin",
+                    "email": "robin@panfu.us"
+                }
+            ],
+            "description": "A Laravel package to display and validate hCaptcha.",
+            "keywords": [
+                "captcha",
+                "hcaptcha",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/teampanfu/laravel-hcaptcha/issues",
+                "source": "https://github.com/teampanfu/laravel-hcaptcha/tree/v1.1.1"
+            },
+            "time": "2023-03-10T16:54:33+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class PruebaControler extends Controller
 {
-    function probar($ruta){
+    function probar(){
         $categoria=Categoria::all();
-    	return view('view3',['Categorias'=>$categoria, 'ruta'=>$ruta]);
+    	return view('view3');
     }
     function prueba(){
         return view('noPasar');

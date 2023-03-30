@@ -62,7 +62,12 @@
                     $total+= $item->precio;
                 @endphp
             @endforeach
+            @php
+                use Anhskohbo\NoCaptcha\Facades\NoCaptcha;
+            @endphp
             <p id='total'>total: {{ $total }}€</p>
+            {!! NoCaptcha::renderJs() !!}
+            {!! NoCaptcha::display() !!}
             <a href="{{url('/pagar')}}"><button id='comprar'>Comprar</button></a>
         </div>
     </main>
